@@ -24,6 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate environment
+        run: |
+          mkdir -p src/environments
+          echo "export const environment = {
+            production: false
+          };" > src/environments/environment.ts
+
       - name: Generate production environment
         run: |
           mkdir -p src/environments
