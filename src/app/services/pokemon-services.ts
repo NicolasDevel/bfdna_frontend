@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Pokemon, PokemonIndexQueryParamas } from '../interfaces/pokemon';
 import { Observable } from 'rxjs';
 import { Paginate } from '../interfaces/paginate';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Paginate } from '../interfaces/paginate';
 export class PokemonServices {
 
   private http = inject(HttpClient)
-  private apiUrl = 'http://localhost:5156/'
+  private apiUrl = environment.apiUrl;
 
 
   getPokemons(params : PokemonIndexQueryParamas): Observable<Paginate<Pokemon>> {
