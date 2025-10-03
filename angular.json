@@ -13,6 +13,9 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "define": {
+              "process.env.API_URL": "\"http://localhost:3000/api\""
+            },
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -22,6 +25,7 @@
               }
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ]
           },
@@ -81,5 +85,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "44bec59d-6f32-4be6-a9f6-a4a190739b9a"
   }
 }

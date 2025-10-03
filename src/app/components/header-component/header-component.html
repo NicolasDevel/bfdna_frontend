@@ -1,0 +1,16 @@
+<header class="app-header" style="display: flex; justify-content: flex-end; padding: 0.5rem 1rem;">
+  <mat-form-field appearance="outline" style="width: 250px;">
+    <mat-label>Buscar Pokémon</mat-label>
+    <input matInput 
+           [(ngModel)]="searchTerm"
+           (input)="onSearchChange()"
+           [matAutocomplete]="auto"
+           placeholder="Escribe al menos 3 letras..." />
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectPokemon($event.option.value)">
+      <mat-option *ngFor="let suggestion of suggestions" [value]="suggestion">
+        <img [src]="suggestion.imageUrl" alt="{{suggestion.name}}" width="30" style="margin-right: 0.5rem;">
+        {{ suggestion.name | titlecase }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</header>
