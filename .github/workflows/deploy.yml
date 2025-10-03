@@ -34,11 +34,11 @@ jobs:
       - name: Generate production environment
         run: |
           mkdir -p src/environments
-          echo "export const environment = {
-            production: true,
-            apiUrl: '${{ secrets.API_URL }}'
-          };" > src/environments/environment.prod.ts
+          printf "export const environment = {\n  production: true,\n  apiUrl: '%s'\n};\n" "${{ secrets.API_URL }}" > src/environments/environment.prod.ts
 
+      - name: Cat environment
+        run: |
+          cat src/environments/environment.prod.ts
       - name: Build Angular
         run: npm run build -- --configuration production
 
