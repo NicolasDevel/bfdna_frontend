@@ -51,7 +51,7 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync dist/frontend/ s3://bfdna-front/ --delete
+          aws s3 sync dist/frontend/browser/ s3://bfdna-front/ --delete
 
       - name: Invalidate CloudFront
         run: |
